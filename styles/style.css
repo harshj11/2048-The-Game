@@ -14,16 +14,58 @@ body {
 }
 
 #game-board {
+    --grid-track-size: 20vmin;
+    --grid-gap: 2vmin;
     background-color: #cccccc;
     border-radius: 1vmin;
+    
     display: grid;
-    grid-template-columns: repeat(4, 20vmin);
-    grid-template-rows: repeat(4, 20vmin);
-    gap: 2vmin;
-    padding: 2vmin;
+    
+    grid-template-columns: repeat(4, var(--grid-track-size));
+    grid-template-rows: repeat(4, var(--grid-track-size));
+    gap: var(--grid-gap);
+    
+    padding: var(--grid-gap);
+    position: relative;
 }
 
 .cell {
     background-color: #aaaaaa;
     border-radius: 1vmin;
+}
+
+.tile {
+    --x: 2;
+    --y: 2;
+    --background-lightness: 30%;
+    --text-lightness: 90%;
+
+    animation: show 200ms ease-in-out;
+
+    background-color: hsl(200, 50%, var(--background-lightness));
+    border-radius: 1vmin;
+
+    color: hsl(200, 50%, var(--text-lightness));
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 7vmin;
+    font-weight: bold;
+
+    height: var(--grid-track-size);
+    width: var(--grid-track-size);
+    
+    position: absolute;
+    top: calc((var(--y) * (var(--grid-track-size) + var(--grid-gap))) + var(--grid-gap));
+    left: calc((var(--x) * (var(--grid-track-size) + var(--grid-gap))) + var(--grid-gap));
+
+    animation: show 200ms ease-in-out;
+}
+
+@keyframes show {
+    0% {
+        transform: scale(0);
+    }
 }
