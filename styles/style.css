@@ -14,15 +14,13 @@ body {
 }
 
 #game-board {
-    --grid-track-size: 20vmin;
-    --grid-gap: 2vmin;
     background-color: #cccccc;
     border-radius: 1vmin;
     
     display: grid;
     
-    grid-template-columns: repeat(4, var(--grid-track-size));
-    grid-template-rows: repeat(4, var(--grid-track-size));
+    grid-template-columns: repeat(var(--grid-nums), var(--grid-track-size));
+    grid-template-rows: repeat(var(--grid-nums), var(--grid-track-size));
     gap: var(--grid-gap);
     
     padding: var(--grid-gap);
