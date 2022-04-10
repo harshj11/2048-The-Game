@@ -1,14 +1,18 @@
+import Cell from './Cell.js';
+
+
 const GRID_TRACK_SIZE = 20;
 const GRID_GAP = 2;
 const GRID_NUMS = 4;
 
 export default class Grid {
+    #cells
     constructor(gridElement) {
         gridElement.style.setProperty("--grid-track-size", `${GRID_TRACK_SIZE}vmin`);
         gridElement.style.setProperty("--grid-gap", `${GRID_GAP}vmin`);
         gridElement.style.setProperty("--grid-nums", GRID_NUMS);        
 
-        createCellElements(gridElement);
+        this.#cells = createCellElements(gridElement).map((cell, index) => new Cell(cell, Math.floor(index / GRID_NUMS), index % GRID_NUMS));
     }
 }
 
