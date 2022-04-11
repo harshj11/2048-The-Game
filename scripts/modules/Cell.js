@@ -3,14 +3,22 @@ export default class Cell {
     #x
     #y
     #tile
-    
+
     constructor(cellElement, x, y) {
         this.#cellElement = cellElement;
         this.#x = x;
         this.#y = y;
     }
 
-    getTile() {
+    get tile() {
         return this.#tile;
+    }
+
+    set tile(value) {
+        this.#tile = value;
+        if(this.#tile == null)
+            return;
+        this.#tile.x = this.#x;
+        this.#tile.y = this.#y;
     }
 }

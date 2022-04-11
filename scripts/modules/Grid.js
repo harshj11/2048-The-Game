@@ -15,10 +15,10 @@ export default class Grid {
     }
 
     #getEmptyCells() {
-        return this.#cells.filter(cell => cell.getTile() == null)
+        return this.#cells.filter(cell => cell.tile == null)
     }
 
-    getRandomTile() {
+    getRandomEmptyTile() {
         const emptyCells = this.#getEmptyCells();
         const randomIndex = Math.floor(Math.random() * emptyCells.length);
         return emptyCells[randomIndex];

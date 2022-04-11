@@ -33,10 +33,9 @@ body {
 }
 
 .tile {
-    --x: 2;
-    --y: 2;
-    --background-lightness: 30%;
-    --text-lightness: 90%;
+
+    --background-lightness: 90%;
+    --text-lightness: 30%;
 
     animation: show 200ms ease-in-out;
 
@@ -56,8 +55,8 @@ body {
     width: var(--grid-track-size);
     
     position: absolute;
-    top: calc((var(--y) * (var(--grid-track-size) + var(--grid-gap))) + var(--grid-gap));
-    left: calc((var(--x) * (var(--grid-track-size) + var(--grid-gap))) + var(--grid-gap));
+    top: calc((var(--x) * (var(--grid-track-size) + var(--grid-gap))) + var(--grid-gap));
+    left: calc((var(--y) * (var(--grid-track-size) + var(--grid-gap))) + var(--grid-gap));
 
     animation: show 200ms ease-in-out;
 }
